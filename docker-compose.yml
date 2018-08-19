@@ -4,19 +4,19 @@ version: '2'
 
 # Named volumes
 volumes:
-  # MySQL Data
-  hello-world-laravel-mysql-data:
-    driver: local
+  # Postgres Data
+  hello-world-laravel-postgres-data:
+    driver: local    
 
 services:
-  # MySQL (5.7)
+  # Postgres (9.6)
   mysql:
-    image: ambientum/mysql:5.7
-    container_name: hello-world-laravel-mysql
+    image: ambientum/postgres:9.6
+    container_name: hello-world-laravel-postgres
     volumes:
-      - hello-world-laravel-mysql-data:/var/lib/mysql
+      - hello-world-laravel-postgres-data:/var/lib/mysql
     ports:
-      - "3360:3306"
+      - "5402:5432"
 
   # PHP (with Caddy)
   app:
