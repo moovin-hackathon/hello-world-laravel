@@ -1,0 +1,17 @@
+language: php
+php:
+- 7.1
+install:
+- travis_retry composer install --no-interaction --no-suggest
+script:
+- "./vendor/bin/phpunit tests/Unit/"
+cache:
+  directories:
+  - vendor
+  - "$HOME/.cache/composer"
+deploy:
+  provider: heroku
+  app:
+    master: moovin-hackathon-hw-laravel
+  api_key:
+    secure: QxwTixkrHNb0CzAsjxhJJqO7EcYBIPxlviX0D19OBgMQlukw+tjJdbrjnkE//mWY4QPvyiic1gA2vUgQ7QRPSiKN1l/ZiT3k9OI27rWkqfKB1xnTpXImnfiBbK5ul79yEG8Ou84oX5+cCQon//jpKNJoppnH/6YeOUvmwSmnB1PrjeJ/plWNkmBWm/OXqJpd+yp80rMwVuHOvobp+5Jvhet3r+0GYEMiWR6nbccQvcKmeNCq7o/jRwEdAzWkcNeVmj0y8Vw0Q+eWfFEE9o42TpkEHaTx2KyBQHNh5q1OsoaQD6NXOzg0FkNn6+E/DRwwupy0R+E1UDol3127Txgzkmvq2E5HijHeLevX7w2Dqw6vyHHGL4SYNUOIc/z7nHiM9hpovqcxkBkFX7E3QVUgFvIDyYVJQaQTsc/qdJJSdrm8UxjDsEy+NMVOS5P+geqCZBg+OWuZIIKVBLBYEl8SD1eJcRuULxI7UIYjwXUiIkWeYfvLlTp2vdhcCqLby0ynLHK9suks1izGPwKtPPE70ElzI7HuoIy5uRsVdfvP7JjgPXs3J9JuGy6q/Zux/tiTrCWbPGeLVlvq0LHBTQPOJJRSg2ERDxScjqE3T+icE2O8Z5ureHsLqRUzkGYZYA4kTEbyeNJEkmc6eaX7/MVXN1NTNehJbin2bMUogC8w3qs=
